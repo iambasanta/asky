@@ -23,7 +23,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
+            'user_id' => rand(1, 3),
             'title' => rtrim($this->faker->sentence(rand(5, 10)), "."),
             'body' => $this->faker->paragraphs(rand(3, 7), true),
             'views' => rand(0, 10),
