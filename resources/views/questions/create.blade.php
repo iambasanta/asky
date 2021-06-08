@@ -21,7 +21,7 @@
                             <label for="question-title">
                                 Question Title
                             </label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="question-title" name="title">
+                            <input type="text" value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror" id="question-title" name="title">
 
                             @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -31,7 +31,7 @@
                             <label for="question-body">
                                 Explain your question
                             </label>
-                            <textarea name="body" id="question-body" rows="10" class="form-control @error('body') is-invalid @enderror"></textarea>
+                            <textarea name="body" value="{{old('body')}}" id="question-body" rows="10" class="form-control @error('body') is-invalid @enderror"></textarea>
                             @error('body')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
