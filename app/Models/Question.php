@@ -43,4 +43,9 @@ class Question extends Model
         }
         return "unanswered";
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
