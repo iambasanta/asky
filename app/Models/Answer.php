@@ -26,4 +26,16 @@ class Answer extends Model
             $answer->question->increment('answers_count');
         });
     }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
+    public function getGravatarAttribute()
+    {
+        $email = $this->email;
+        $size = 32;
+        return "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
+    }
 }
