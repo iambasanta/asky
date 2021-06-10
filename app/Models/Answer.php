@@ -44,4 +44,9 @@ class Answer extends Model
         $size = 32;
         return "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
     }
+
+    public function getStatusAttribute()
+    {
+        return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
+    }
 }
