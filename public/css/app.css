@@ -16144,6 +16144,9 @@ h3 {
   width: 60px;
   height: 60px;
 }
+.counters .status {
+  margin-top: 5px;
+}
 .counters .status.unanswered {
   border: none;
 }

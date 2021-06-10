@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('questions', QuestionController::class)->except('show');
+Route::resource('questions.answers', AnswerController::class)->only(['store', 'edit', 'update', 'destroy']);
+
 Route::get('questions/{slug}', [QuestionController::class, 'show'])->name('questions.show');
