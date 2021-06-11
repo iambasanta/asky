@@ -18,7 +18,7 @@
 
                     <div class="media">
                         <div class="d-flex flex-column vote-controls">
-                            <!--upvote question-->>
+                            <!--upvote question-->
                             <a class="vote-up {{Auth::guest() ? 'off' : ''}}" title="This question is useful" onclick="event.preventDefault(); document.getElementById('up-vote-question-{{$question->id}}').submit();"><i class="fas fa-caret-up fa-3x"></i></a>
                             <form id="up-vote-question-{{$question->id}}" action="/questions/{{$question->id}}/vote" method="POST" class="display:none;">
                                 @csrf
@@ -27,14 +27,14 @@
 
                             <span class="votes-count {{Auth::guest() ? 'off' : ''}}">{{$question->votes_count}}</span>
 
-                            <!--downVote question-->>
+                            <!--downVote question-->
                             <a class="vote-down off" title="This question is not useful" onclick="event.preventDefault(); document.getElementById('down-vote-question-{{$question->id}}').submit();"><i class="fas fa-caret-down fa-3x"></i></a>
                             <form id="down-vote-question-{{$question->id}}" action="/questions/{{$question->id}}/vote" method="POST" class="display:none;">
                                 @csrf
                                 <input type="hidden" name="vote" value="-1">
                             </form>
 
-                            <!--mark as favourite question-->>
+                            <!--mark as favourite question-->
                             <a title="Click to mark as favourite question (Click again to undo)" class="favourite mt-2 {{ Auth::guest() ? 'off' : ($question->is_favourited ? 'favourited' : '') }}" onclick="event.preventDefault(); document.getElementById('favourite-question-{{$question->id}}').submit();">
                                 <i class="fas fa-certificate fa-2x"></i>
                                 <span class="favourite-count">{{$question->favourites_count}}</span>
