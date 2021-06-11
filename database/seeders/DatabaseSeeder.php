@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Answer;
-use App\Models\Question;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(3)
-            ->has(Question::factory()->count(5)
-                ->has(Answer::factory()->count(3)))
-            ->create();
+        $this->call([
+            UsersQuestionsAnswersTableSeeder::class,
+            FavouritesTableSeeder::class,
+        ]);
     }
 }

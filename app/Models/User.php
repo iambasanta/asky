@@ -55,4 +55,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function favourites()
+    {
+        return $this->belongsToMany(Question::class, 'favourites')->withTimestamps(); //,'user_id','question_id');
+        //explicitly specify column names if convention is not followed.
+    }
 }
