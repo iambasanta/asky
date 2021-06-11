@@ -16140,7 +16140,8 @@ h3 {
   display: block;
   font-size: 2rem;
 }
-.counters .vote, .counters .answer {
+.counters .vote,
+.counters .answer {
   width: 60px;
   height: 60px;
 }
@@ -16171,7 +16172,8 @@ form.form-delete {
   margin-right: 30px;
   text-align: center;
 }
-.vote-controls span, .vote-controls a {
+.vote-controls span,
+.vote-controls a {
   display: block;
   color: #495057;
 }
@@ -16193,4 +16195,14 @@ form.form-delete {
 }
 .vote-controls a.vote-accepted {
   color: #38c172;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
