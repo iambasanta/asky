@@ -11,9 +11,22 @@
                 @foreach($answers as $answer)
                 <div class="media">
                     <div class="d-flex flex-column vote-controls">
-                        <a class="vote-up" title="This answer is useful"><i class="fas fa-caret-up fa-3x"></i></a>
-                        <span class="votes-count">1230</span>
-                        <a class="vote-down off" title="This answer is not useful"><i class="fas fa-caret-down fa-3x"></i></a>
+                        <!--upvote answer-->
+                        <a class="vote-up {{Auth::guest() ? 'off' : ''}}" title="This answer is useful" onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{$answer->id}}').submit();"><i class="fas fa-caret-up fa-3x"></i></a>
+                        <form id="up-vote-answer-{{$answer->id}}" action="/answers/{{$answer->id}}/vote" method="POST" class="display:none;">
+                            @csrf
+                            <input type="hidden" name="vote" value="1">
+                        </form>
+
+                        <span class="votes-count {{Auth::guest() ? 'off' : ''}}">{{$answer->votes_count}}</span>
+
+                        <!--downVote answer-->
+                        <a class="vote-down off" title="This answer is not useful" onclick="event.preventDefault(); document.getElementById('down-vote-answer-{{$answer->id}}').submit();"><i class="fas fa-caret-down fa-3x"></i></a>
+                        <form id="down-vote-answer-{{$answer->id}}" action="/answers/{{$answer->id}}/vote" method="POST" class="display:none;">
+                            @csrf
+                            <input type="hidden" name="vote" value="-1">
+                        </form>
+
                         @can('accept',$answer)
                         <a title="Mark this answer as best answer" class=" mt-2 {{ $answer->status }}" onclick="event.preventDefault(); document.getElementById('accepted-answer-{{ $answer->id }}').submit();">
                             <i class="fas fa-check fa-2x"></i>

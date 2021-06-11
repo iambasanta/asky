@@ -25,7 +25,7 @@ class AnswerFactory extends Factory
         return [
             'user_id' => User::pluck('id')->random(),
             'body' => $this->faker->paragraphs(rand(3, 7), true),
-            'votes_count' => rand(0, 5)
+            /* 'votes_count' => rand(0, 5) */
         ];
     }
 }
