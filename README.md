@@ -2,11 +2,11 @@
 
 Clone the repository
 
-    https://github.com/iambasanta/lara-ask.git
+    https://github.com/iambasanta/asky.git
 
 Switch to the repo folder
 
-    cd lara-ask
+    cd asky
 
 Install all the dependencies using composer
 
@@ -20,15 +20,17 @@ Copy the example `.env.example` in `.env` file
 
     cp .env.example .env
 
-Open and make the required configuration changes in the .env file
+Open and make the required configuration changes in the `.env` file
 
--`DB_DATABASE` -`DB_USERNAME` -`DB_PASSWORD`
+-   `DB_DATABASE`
+-   `DB_USERNAME`
+-   `DB_PASSWORD`
 
 Generate a new application key
 
     php artisan key:generate
 
-Run the database migrations (**Set the database connection in .env before migrating**)
+Run the database migrations (**Make sure you have proper database connection in `.env` before migrating**)
 
     php artisan migrate
 
